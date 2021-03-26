@@ -1,9 +1,24 @@
-<table class="table">
-  <tr *ngFor="let product of products">
-    <td>{{product.productId}}</td>
-    <td>{{product.productName}}</td>
-    <td>{{product.categoryId}}</td>
-    <td>{{product.unitPrice}}</td>
-
-  </tr>
+<button *ngIf="dataLoaded==false" class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>
+<table class="table table-hover">
+  <thead *ngIf="dataLoaded==true">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Category Id</th>
+      <th scope="col">Unit Price</th>
+      <th scope="col">Units In Stock</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{product.productId}}</td>
+      <td>{{product.productName}}</td>
+      <td>{{product.categoryId}}</td>
+      <td>{{product.unitPrice}}</td>
+      <td>{{product.unitsInStock}}</td>
+    </tr>
+  </tbody>
 </table>
